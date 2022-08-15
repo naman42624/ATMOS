@@ -131,7 +131,7 @@ Install MongoDB Compass and enter the url 'mongodb+srv://sampleuser:1234@atmos-s
 Open the following link
 http://localhost:3000/
 
-Github link:  https://github.com/kasliwalshreyas/ATMOS---Website
+Github link:  https://github.com/naman42624/ATMOS
 
 
 

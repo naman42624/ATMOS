@@ -6,7 +6,7 @@ const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
 const otpModel = require('../models/otpModel');
 
 
-
+ 
 const handleError = (err) => {
     console.log(err.message, err.code);
 
@@ -101,8 +101,8 @@ module.exports.login_post = async (req,res) =>{
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'atmosadans@gmail.com',
-        pass: '}%#7z<nGK7%!W'
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD
     },
     tls: {
         rejectUnauthorized: false

@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.heading h1 {
+    text-align: center;
+}
+.nav-bar{
+    /* display: flex; */
+}
+.nav-bar-elements{
+    display: inline-block;
+    margin-left: 60px;
+}
+.profile{
+    position: absolute;
+    right: 0;
+    top: 20px;
+    margin-right: 20px;
+
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+.profile:hover{
+    /* display: inline-block; */
+    float: right;
+    margin-right: 20px;
+
+}
+.nav-bar-elements-list{
+    list-style-type: none;
+}
+.nav-bar-elements-list li{
+    display: inline-block;
+    /* border-bottom: solid; */
+    margin-right: 20px;
+}
+.nav-bar-elements-list li:hover{
+    cursor:pointer;
+    display: inline-block;
+    border-bottom: solid;
+    margin-right: 20px;
+}
+/* .nav-bar-elements-list li:active{
+    display: inline-block;
+    border-bottom: solid;
+    margin-right: 20px;
+} */
+
+
+.main-display{
+    padding-top: 100px;
+    margin: 0 auto;
+}
+.greetings{
+    text-align: center;
+}
+
+.quick-access-containers{
+    margin: 0 auto 0 auto;
+}
+
+.task{
+    border-style: solid !important;
+    border: 1.5px black;
+    border-radius: 8px;
+    margin: 20px 50px;
+    display: inline-block;
+    padding: 20px;
+
+    width: 400px;
+    min-height: 300px;
+}
+.task:hover{
+    border: 1px;
+}
+.window-title{
+    margin-bottom: 10px;
+}
+.window-nav-bar{
+    list-style-type: none;
+}
+.window-nav-bar li{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+
+.projects{
+    border-style: solid !important;
+    border: 1.5px black;
+    border-radius: 8px;
+    margin: 20px 50px;
+    display: inline-block;
+    padding: 20px;
+
+    width: 400px;
+    height: 300px;
+
+}
+.projects:hover{
+    border: 1px;
+}
+
+.window-list{
+    margin-top: 10px;
+}
+.window-list-ul{
+    list-style-type: none;
+}
+.window-list-li{
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}
+.window-list-li:hover{
+    background-color: whitesmoke;
+}
+.window-project-outer-div{
+    /* border-style: solid !important;
+    border: 1.5px black;
+    border-radius: 8px;  */
+    
+    display: inline-block;
+    width: 400px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.window-project-inner-div{
+    /* float: left; */
+    display: inline-flex;
+    padding-left: 10px;
+}
+.window-project-icon{
+    /* float: left; */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    border-radius: 10px;
+    width: 45px;
+    height: 45px;
+}
+.window-project-icon-image{
+    /* border: 2px rgb(255, 255, 255) solid; */
+    /* border-radius: 16px; */
+    width: 35px;
+    
+}
+.window-project-name{
+    display: inline-block;
+    position: relative;
+    top: 10px;
+}
+.window-project-name p{
+    font-size: 11px;
+}
+
+
+.dropdown{
+    display: none;
+    float: right;
+    position: relative;
+    left: -15px;
+    top: 5px;
+}
+
+
+
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 170px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 2;
+}
+.dropdown:hover{
+
+    z-index: 2;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgb(219, 219, 218); */
+    
+}
+.dropdown:hover .dropdown-content {
+    z-index: 2;
+    display: block;
+    
+}
+.dropdown-option{
+
+    display: block;
+    padding: 4px 6px;
+}
+.dropdown-option{
+    margin: 2px 0px 5px 0px;
+       
+}
+
+
+/* .dropdown-dots{
+    position: relative;
+    top: -40px;
+} */
+
+.window-list-li:hover .dropdown{
+    display: block;
+}
+
+
+/* .window-task-name p{
+    font-size: 11px;
+}
+
+.task-dropdown-content{
+    position: relative;
+    top: -50px;
+} */
+
+
+.window-task-outer-div{
+    /* border-style: solid !important;
+    border: 1.5px black;
+    border-radius: 8px;  */
+    
+    position: relative;
+    top: -10px;
+
+    display: inline-block;
+    width: 400px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.window-task-inner-div{
+    /* float: left; */
+    /* position: relative;
+    top: -10px; */
+    display: inline-flex;
+    padding-left: 10px;
+}
+
+.window-task-name{
+    display: inline-block;
+    position: relative;
+    top: 10px;
+}
+.window-task-name p{
+    font-size: 11px;
+}
+

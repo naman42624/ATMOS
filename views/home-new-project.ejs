@@ -1,0 +1,20 @@
+<div class="window-project-outer-div">
+    <div class="window-project-inner-div">
+        <div class="window-project-icon" style="background-color: <%= projectDetail['backGroundColor'] %> ">
+            <img class="window-project-icon-image" src="<%=projectDetail['backgroundImage']%>">
+        </div>
+        <div class="window-project-name">
+            <h4><%=projectDetail.projectName%></h4>
+            <p>5 tasks due soon</p>
+        </div>                                     
+    </div>
+    <div class = "dropdown">
+        <h2 class=""><sup>...</sup></h2>
+        <div class="dropdown-content">
+            <object>
+                <a class="dropdown-option" href ="/delete-project" onclick="deleteProject(event)" >Delete</a>
+                <a class="dropdown-option" onclick="addToFavorite(event)">Remove from favorite</a>
+            </object>
+        </div>
+    </div>
+</div>

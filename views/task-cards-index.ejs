@@ -1,0 +1,34 @@
+<% let dateFormat = new Date(taskDetails.taskDeadline); %>
+<% let date = (Number(dateFormat.getYear()) + 1900) + "-" + (Number(dateFormat.getMonth()) + 1) + "-" + dateFormat.getDate() %>
+<!-- <% console.log('date: ' + date); %> -->
+
+<li id = 'output-list-input-<%=taskNumber%>' class = 'output-list'>
+    <div id = "task-card-<%= sectionNumber %>-<%=taskNumber%>" class = "card <%= taskDetails['taskCompletion'] == "true" ? "card-checked" : "" %> " onclick = "getModal('<%= sectionNumber %>','<%=taskNumber%>',2)">
+        <div class = "card-tick-input-add">
+            <div class="round">
+                <input type="checkbox" <%= taskDetails['taskCompletion'] == "true" ? "checked" : "" %> onchange = "updateTaskCompletionData(event)" id="checkbox-<%= sectionNumber %>-<%=taskNumber%>">
+                <label for="checkbox-<%= sectionNumber %>-<%=taskNumber%>"></label>
+            </div>
+            <div class = "card-input-add-div">
+                <input id = "section-<%= sectionNumber %>-card-input-<%=taskNumber%>" class = "card-input-add-input" type = "text" value = "<%=taskDetails.taskName%>">
+                <img id = "section-<%= sectionNumber %>-card-add-<%=taskNumber%>" class = "card-input-add-add-icon" onclick = "deleteTask('<%= sectionNumber %>','<%=taskNumber%>')" src="https://img.icons8.com/ios-glyphs/30/000000/filled-trash.png"/>
+            </div>
+        </div>
+            <div class = "card-status-priority">
+                <p id = "section-<%= sectionNumber %>-card-status-<%=taskNumber%>" class = "card-status"> <%= taskDetails.taskStatus %></p>
+                <p id = "section-<%= sectionNumber %>-card-priority-<%=taskNumber%>" class = "card-priority"> <%= taskDetails.taskPriority %></p>
+            </div>
+            <div class = "card-collab-deadline">
+                <!-- <img id = "section-<%= sectionNumber %>-card-collab-<%=taskNumber%>" class = "card-collaborators-image" src="data:image/png;base64,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"> -->
+                <p id = "section-<%= sectionNumber %>-card-deadline-<%=taskNumber%>" class = "card-deadline"> <%= date %></p>
+            </div>              
+    </div>
+
+    <%- include('task-card-window',{
+        sectionName: sectionName,
+        sectionNumber: sectionNumber,
+        taskNumber: taskNumber,
+        taskDetails: taskDetails
+    }) %>
+
+</li>

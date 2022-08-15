@@ -1,0 +1,72 @@
+<% let dateFormat = new Date(taskDetails.taskDeadline); %>
+<% let date="00-00-0000"; %>
+<% if((Number(dateFormat.getMonth()) + 1) < 10){ %>
+    <% console.log("0"+String((Number(dateFormat.getMonth()) + 1))); %>
+    <% date = (Number(dateFormat.getYear()) + 1900) + "-" + "0"+(Number(dateFormat.getMonth()) + 1) + "-" + dateFormat.getDate() %>
+<% } %>
+<% if((Number(dateFormat.getMonth()) + 1) >= 10){%>
+    <%console.log("hi")%>
+<% date = (Number(dateFormat.getYear()) + 1900) + "-" + (Number(dateFormat.getMonth()) + 1) + "-" + dateFormat.getDate() %>
+<% } %>
+
+
+<!-- <% console.log('date: ' + date + " " + (Number(dateFormat.getMonth()) + 1)); %> -->
+
+
+
+<div id="<%=sectionNumber%>-<%=taskNumber%>-display-modal" class="modal-task">
+    <div id = "<%=sectionNumber%>-<%=taskNumber%>-display" class = "modal-content-task task-display">
+            <div class = "additional-functionality">
+                <button id = "back-btn-<%=sectionNumber%>-<%=taskNumber%>" class = "close-modal back-btn" >Back</button>
+            </div>
+            <div class = "taskname">
+                <input id = "taskname-<%=sectionNumber%>-<%=taskNumber%>" class = "taskname-input" type = "text" value = "<%=taskDetails.taskName%>" placeholder = "Enter Task Name...">
+            </div>
+            <div class = "taskinfo">
+                <table class = "taskinfo-table">
+                    
+                    <tr class = "taskinfo-table-row">
+                        <td class = "taskinfo-table-data-0"><label class = "assign-label" for = "taskinfo-assignee-<%=sectionNumber%>-<%=taskNumber%>">Assignee</label></td>
+                        <td class = "taskinfo-table-data-1"><input id = "taskinfo-assignee-<%=sectionNumber%>-<%=taskNumber%>" class = "assign-input" type = "text" value = "<%=taskDetails.taskAssingedTo%>"></td>
+                    </tr>
+                    <tr class = "taskinfo-table-row">
+                        <td class = "taskinfo-table-data-0"><label class = "deadline-label" for = "taskinfo-deadline-<%=sectionNumber%>-<%=taskNumber%>">Deadline</label></td>
+                        <td class = "taskinfo-table-data-1"><input id = "taskinfo-deadline-<%=sectionNumber%>-<%=taskNumber%>" class = "deadline-input" type="date" value = "<%=date%>"></td>
+                    </tr>
+                    <tr class = "taskinfo-table-row">
+                        <td class = "taskinfo-table-data-0"><label class = "sectionName-label" for = "taskinfo-sectionName-<%=sectionNumber%>-<%=taskNumber%>">sectionName</label></td>
+                        <td class = "taskinfo-table-data-1"><input id = "taskinfo-sectionName-<%=sectionNumber%>-<%=taskNumber%>" class = "sectionName-input" type="" value = "<%=sectionName%>"></td>
+                    </tr>
+                    <tr class = "taskinfo-table-row">
+                        <td class = "taskinfo-table-data-0"><label class = "priority-label" for = "taskinfo-priority-<%=sectionNumber%>-<%=taskNumber%>">Priority</label></td>
+                        <td class = "taskinfo-table-data-1">
+                            <select class = "priority-input" name="taskinfo-priority-<%=sectionNumber%>-<%=taskNumber%>" id="taskinfo-priority-<%=sectionNumber%>-<%=taskNumber%>" value = "<%=taskDetails.taskPriority%>">
+                               
+                                <option value = "null">Choose Priority</option>
+                                <option value="High" <%=taskDetails['taskPriority'] == "High" ? "selected" : "" %>>High</option>
+                                <option value="Medium" <%=taskDetails['taskPriority'] == "Medium" ? "selected" : ""%>>Medium</option>
+                                <option value="Low" <%=taskDetails['taskPriority'] == "Low" ? "selected" : ""%>>Low</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class = "taskinfo-table-row">
+                        <td class = "taskinfo-table-data-0"><label class = "status-label" for = "taskinfo-status-<%=sectionNumber%>-<%=taskNumber%>">Status</label></td>
+                        <td class = "taskinfo-table-data-1">
+                            <select class = "status-input" name="taskinfo-status-<%=sectionNumber%>-<%=taskNumber%>" id="taskinfo-status-<%=sectionNumber%>-<%=taskNumber%>">
+                                <option value = "Choose Status">Choose Status</option>
+                                <option value = "On-Track" <%=taskDetails['taskStatus'] == "On-Track" ? "selected" : "" %>>On-Track</option>
+                                <option value = "At-Risk" <%=taskDetails['taskStatus'] == "At-Risk" ? "selected" : "" %>>At-Risk</option>
+                                <option value = "Off-Track" <%=taskDetails['taskStatus'] == "Off-Track" ? "selected" : "" %>>Off-Track</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class = "taskinfo-table-row">
+                        <td class = "taskinfo-table-data-0"><label class = "description-label" for = "taskinfo-description-<%=sectionNumber%>-<%=taskNumber%>">Description</label></td>
+                        <td class = "taskinfo-table-data-1"><textarea id = "taskinfo-description-<%=sectionNumber%>-<%=taskNumber%>" class = "description-input"><%=taskDetails.taskDescription%></textarea></td>
+                    </tr>
+                </table>
+            </div>
+            <!-- <button class = "add-subtask">Add Subtask</button>
+            <button class = "message">Message</button> -->
+        </div>
+</div>

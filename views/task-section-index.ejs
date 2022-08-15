@@ -1,0 +1,53 @@
+<% console.log(sectionNumber, sectionDetails); %>
+
+<li id="section-list-input-<%=sectionNumber%>" class = "section-list-input">
+    <div class = "section">
+        <div class = "section-input-div">  
+            <input id = "section-input-<%= sectionNumber %>" onChange = "updateSectionNameData(event);"  class = "section-input-input" type = "text" value = "<%= sectionDetails.sectionName %>" placeholder = "Enter Section Name...">
+            <button id = "section-add-btn-<%= sectionNumber %>" onclick= "addTaskToSection1('<%=sectionDetails._id%>',event)" class = "section-input-btn"><b>ADD</b></button>
+            <div id="section-options-<%=sectionNumber%>" class = "section-option-div">
+                <button id="section-dropdown-btn" class = "section-dropdown-btn" >...</button>
+                <div id= "dropdown-content-div-<%=sectionNumber%>" class="dropdown-content">
+                    <object>
+                        <a class="dropdown-option" href="#section-input-<%=sectionNumber%>">Rename</a>
+                        <a class="dropdown-option" href="/delete-section/<%=sectionNumber%>">Delete</a>
+                        <!-- <a class="dropdown-option" href="/add-section-to-right/<%=sectionNumber%>">Add Section To Right</a>
+                        <a class="dropdown-option" href="/add-section-to-left/<%=sectionNumber%>">Add Section To Left</a> -->
+                    </object>
+                </div>
+            </div>
+            <!-- <div class="section-option-div">
+                <button id = "dropdown-content-div-<%= sectionNumber %>"  class="section-dropdown-btn" onclick="getDropdownForSection('<%=sectionDetails._id%>',event)">...</button>
+            </div>           -->
+
+            <!-- <div>
+                <h2 id = "section-dropdown-btn-<%=sectionNumber%>" onclick="getDropdownForSection('<%=sectionDetails._id%>',event)" class = "section-dropdown-btn"><b><sup>...</sup></b></h2>
+                    <div id= "dropdown-content-div-<%=sectionNumber%>" class="dropdown-content">
+                        <a class="dropdown-option dropdown-option-0" href="/#section-input-<%= sectionNumber %>">Rename</a>
+                        <a class="dropdown-option dropdown-option-1" href="/delete-section/<%=sectionNumber%>">Delete</a>
+                        <a class="dropdown-option dropdown-option-2" href="#">Add Section To Right</a>
+                        <a class="dropdown-option dropdown-option-3" href="#">Add Section To Left</a>
+                    </div>
+            </div> -->
+        </div>
+        <!-- <object>
+        <div id="section-dropdown-content<%=sectionNumber %>" class = "section-dropdown-content">
+            <a class ="dropdown-option">Remove</a>
+            <a class ="dropdown-option">Delete</a>
+        </div>
+        </object> -->
+        <div class = "section-output">
+            <ul id = "section-output-list-<%= sectionNumber %>" class = "section-output-list">
+                <% for(let i=0;i<taskList.length;i++){ %>
+                    <%- include('task-cards-index',{
+                        sectionName: sectionDetails.sectionName,
+                        sectionNumber: sectionNumber,
+                        taskNumber: i,
+                        taskDetails: taskList[i]
+                    }) %>
+                <% } %>
+
+            </ul>
+        </div>
+    </div>
+</li>

@@ -1,0 +1,46 @@
+
+    <button id = "project-btn-<%=projectNumber%>" class = "project-outer-btn">
+    
+        <div class = "project-div">
+            <div class = "project-icon-functions-div">
+                <div class = "outer-div" style = "background-color: <%= projectList[projectNumber]['backGroundColor'] %> ">
+                <a class="project-cards" href = "/task/<%=projectList[projectNumber]['_id']%>">
+                    <div class="new-inner-div">
+                        <div id="project-favorite-<%=projectNumber%>" class = "project-function-0">
+                            <%if(projectList[projectNumber]['favorite'] == false){%>
+                            <img class="project-favorite-icon" href ="/add-favorite-project/<%=projectList[projectNumber]['_id']%>" src="https://img.icons8.com/windows/32/000000/star--v1.png"/>
+                            <%}%>
+                            <%if(projectList[projectNumber]['favorite'] == true){%>
+                            <img class="project-favorite-icon" href ="/add-favorite-project/<%=projectList[projectNumber]['_id']%>" src="https://img.icons8.com/ios-filled/24/000000/star--v1.png"/>
+                            <%}%>
+                        </div>
+                        <div id="project-options-<%=projectNumber%>" class = "project-function-1 dropdown">
+                            <h2 class=""><sup>...</sup></h2>
+                            <div class="dropdown-content">
+                                <object>
+                                    <a class="dropdown-option" id="dropdown-option-<%=projectList[projectNumber]['_id']%>" href ="/delete-project" onclick="deleteProject(event)" >Delete</a>
+                                    <a class="dropdown-option" id="dropdown-option-<%=projectList[projectNumber]['_id']%>" href ="/add-favorite-project/<%=projectList[projectNumber]['_id']%>" onclick="addToFavorite(event)">
+                                        <% if(projectList[projectNumber]['favorite'] == false){%>
+                                            Add to Favorites
+                                        <% } %>
+                                        <% if(projectList[projectNumber]['favorite'] == true){ %>
+                                            Remove from Favorites
+                                        <% } %>
+                                    </a>
+                                </object>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "project-icon-div">
+                        <img class = "project-icon" src= <%= projectList[projectNumber]['backgroundImage'] %> >                        
+                    </div>
+                </a> 
+                    
+                </div>
+            </div>
+            <div class = "project-name-div">
+                <h4> <%= projectList[projectNumber]['projectName'] %></h4>
+            </div>
+        </div>
+   
+    </button>
